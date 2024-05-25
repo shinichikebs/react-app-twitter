@@ -2,7 +2,6 @@
 .home {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: black;
   color: white;
   height: 100vh;
@@ -19,20 +18,20 @@
   }
 }
 
+.force-relative {
+  position: relative;
+}
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  width: 45.6%;
   height: 50px;
-  left: 30px;
   background-color: #00000095;
-  z-index: 1000;
+  z-index: 1;
   border-bottom: 1px solid #ffffff4e;
   border-left: 1px solid #ffffff4e;
   border-right: 1px solid #ffffff4e;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
+
+  padding: 0 5px;
 }
 
 .header .F.active,
@@ -109,12 +108,6 @@
 }
 
 .left-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: absolute;
-  left: -2px;
-  top: 0px;
   width: 23%;
   height: calc(100vh - 50px);
   padding: 20px;
@@ -122,6 +115,7 @@
   /* border-right: 1px solid #ffffff4e; */
   margin: 10px;
   color: white;
+
 }
 
 .left-content button {
@@ -130,11 +124,9 @@
   background-color: transparent;
   color: white;
   border: none;
-  top: -25px;
   margin-bottom: 5px;
-  position: relative;
   left: 110px;
-  height: 47px;
+  width: 100%;
   padding: 10px;
   border-radius: 50px;
   cursor: pointer;
@@ -145,6 +137,7 @@
   background-color: hwb(0 47% 53%);
   transform: scale(1.05);
   border-radius: 50px;
+  width: 100%;
 }
 
 .left-content img {
@@ -157,9 +150,9 @@
   width: 45px;
   height: 45px;
 }
-
+/* 
 .left-content .postButton {
-  position: absolute;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -171,16 +164,16 @@
   left: 130px;
   border-radius: 50px;
   color: white;
-}
+} */
 
-.postButton {
-  position: absolute;
+.left-content .postButton {
+  margin-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgba(0, 255, 255, 0.941);
-  width: 100px;
+  background-color: rgba(0, 157, 255, 0.941);
+  width: 100%;
   height: 45px;
   border-radius: 50px;
   color: white;
@@ -323,7 +316,10 @@
 }
 
 .tweet-feed {
-  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
   width: 60%;
   padding: 20px;
   box-sizing: border-box;
@@ -337,7 +333,6 @@
 .tweet-feed::after {
   content: '';
   position: absolute;
-  top: -1px; 
   top: 0;
   bottom: 0;
   width: 1px;
@@ -346,34 +341,33 @@
 
 .tweet-feed::before {
   left: 0;
-  margin-left: -9.5%;
+
 }
 
 .tweet-feed::after {
   right: 0;
-  margin-right: -9.5%; 
 }
 
 .tweet {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
+  width: 100%;
   background-color: #000000;
   margin-bottom: 20px;
-  padding: 5px;
+  padding: 25px;
   position: relative;
+  border-bottom: 1px solid white;
   
 }
-.tweet::after {
+/* .tweet::after {
   content: "";
   position: relative;
-  right: 15%;
   bottom: -3px;
-  width: 130%;
+  width: 100%;
   height: .5px;
-  background-color: hwb(0 100% 0%);
-}
+  background-color: hwb(0 91% 6%);
+} */
 
 .profile {
   display: flex;
@@ -384,11 +378,9 @@
 }
 
 .profile img {
- position: absolute; 
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  left: -10%;
   margin-right: 10px;
 }
 
@@ -476,14 +468,19 @@
   font-weight: lighter;
   
 }
+.button-sub {
+  margin-top: 15px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: emphasize;
+}
 /* @media (max-width: 1200px) {
   .right-content{
     right: 20%;
   } 
 } */@media (max-width: 1200px) {
   .header {
-    width: 60%;
-    left: 10px; 
+    width: 60%; 
   }
   
   .left-content, .right-content {
@@ -492,13 +489,13 @@
   }
 
   .tweet-feed {
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    width: 80%; 
+    width: 100%; 
     left: 0;
   }
 
@@ -551,7 +548,6 @@
 
   .tweet-feed {
     width: 100%; 
-    padding: 10px; 
   }
 
   .tweet {
@@ -565,4 +561,37 @@
   .search-button {
     right: 10%; 
   }
+}
+.burger-menu {
+    position: relative;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px; /* Adjust according to your menu width */
+    background-color: #fff; /* Adjust background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adjust shadow */
+    padding: 20px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.show-menu {
+    transform: translateX(0);
+}
+
+.burger-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.burger-line {
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Adjust burger line color */
+    margin: 4px 0;
 }

@@ -110,44 +110,27 @@ const Home = () => {
   const tweetsToShow = activeFeed === 'forYou' ? forYouTweets : followingTweets;
 
   return (
-    <div className="home">
-      <header className="header">
-        <div className="header-content">
-          <button 
-            className={`F ${activeFeed === 'forYou' ? 'active' : ''}`} 
-            onClick={() => setActiveFeed('forYou')}
-          >
-            For you
-          </button>
-          <button 
-            className={`Y ${activeFeed === 'following' ? 'active' : ''}`} 
-            onClick={() => setActiveFeed('following')}
-          >
-            Following
-          </button>
-          <button className="u">
-            <img src={notificationGif} alt="icon" className="button-icon" />
-          </button>
-        </div>
-      </header>
-<div className="left-content">
-        <button className="log2"><img src={logo2} alt="icon" className="button-logo3" /></button>
-        <button className="Ho"><img src={home} alt="icon" className="button-home" />Home</button>
-        <button className="explore"><img src={find} alt="icon" className="button-explore" />Explore</button>
-        <button className="Noti"><img src={notification} alt="icon" className="button-noti" />Notification</button>
-        <button className="message"><img src={message} alt="icon" className="button-message" />Message</button>
-        <button className="GROK"><img src={Grok} alt="icon" className="button-grok" />Grok</button>
-        <button className="List"><img src={lists} alt="icon" className="button-list" />List</button>
-        <button className="Book"><img src={bookmark} alt="icon" className="button-book" />Bookmarks</button>
-        <button className="commu"><img src={community} alt="icon" className="button-commu" />Communities</button>
-        <button className="users"><img src={user} alt="icon" className="button-commu" />Profile</button>
-        <button className="log"><img src={logo2} alt="icon" className="button-logo2" />Premium</button>
-        <button className="cmore"><img src={more} alt="icon" className="button-more" />More</button>
-        <button className="postButton">Post</button>
-        <button className="Logout" onClick={() => setShowOptions(!showOptions)}>
-          <img src={profs} alt="picture" className="button-logout" />
-          <span>Shinichi</span>
-          <p>@tokikitow</p>
+    <div className="container-fluid d-flex flex-row home justify-content-center">
+      <div className="container-fluid d-flex flex-row justify-content-center">
+
+      <div className="left-content d-flex flex-column d-sm-none d-md-block d-none d-sm-block">
+          <button className="log2"><img src={logo2} alt="icon" className="button-logo3" /></button>
+          <button className="Ho"><img src={home} alt="icon" className="button-home" />Home</button>
+          <button className="explore"><img src={find} alt="icon" className="button-explore" />Explore</button>
+          <button className="Noti"><img src={notification} alt="icon" className="button-noti" />Notification</button>
+          <button className="message"><img src={message} alt="icon" className="button-message" />Message</button>
+          <button className="GROK"><img src={Grok} alt="icon" className="button-grok" />Grok</button>
+          <button className="List"><img src={lists} alt="icon" className="button-list" />List</button>
+          <button className="Book"><img src={bookmark} alt="icon" className="button-book" />Bookmarks</button>
+          <button className="commu"><img src={community} alt="icon" className="button-commu" />Communities</button>
+          <button className="users"><img src={user} alt="icon" className="button-commu" />Profile</button>
+          <button className="log"><img src={logo2} alt="icon" className="button-logo2" />Premium</button>
+          <button className="cmore"><img src={more} alt="icon" className="button-more" />More</button>
+          <button className="postButton">Post</button>
+          <button className="Logout" onClick={() => setShowOptions(!showOptions)}>
+              <img src={profs} alt="picture" className="button-logout" />
+              <span>Shinichi</span>
+              <p>@tokikitow</p>
           <img src={moress} alt="picture" className="button-mores" />
         </button>
 
@@ -160,22 +143,29 @@ const Home = () => {
         {/* <button className="Logout"><img src={profs} alt="picture" className="button-logout" />Shinichi 
           <p>@tokikitow</p><img src={moress} alt="picture" className="button-mores" /></button> */}
       </div>
-      <div className="right-content">
-        <div className="search-container">
-          <input type="text" placeholder="Search" className="search-input" />
-          <button className="search-button">
-            <img src={find} alt="icon" className="button-search" />
+      <div className="w-75 p-3 force-relative">
+      <div className="tweet-feed">
+    
+      <header className="header">
+       
+        <div className="header-content">
+            <button 
+            className={`F ${activeFeed === 'forYou' ? 'active' : ''}`} 
+            onClick={() => setActiveFeed('forYou')}
+          >
+            For you
+          </button>
+          <button 
+            className={`Y ${activeFeed === 'following' ? 'active' : ''}`} 
+            onClick={() => setActiveFeed('following')}
+          >
+            Following
+          </button>
+          <button className="">
+            <img src={notificationGif} alt="icon" className="button-icon" />
           </button>
         </div>
-        <div className="box-container">
-            <h1 className="primuim">Subscribe to Premium</h1>
-            <h3 className="subscribe">Subscribe to unlock new features and if eligible, receive a share of ads revenue.</h3>
-            <button className="button-sub">subcribe</button>
-        </div>
-      </div>
-      
-
-      <div className="tweet-feed">
+      </header>
         {tweetsToShow.map((tweet, index) => (
           <div className="tweet" key={index}>
             <div className="profile">
@@ -205,8 +195,24 @@ const Home = () => {
           </div>
         ))}
       </div>
-
     </div>
+    </div>
+    <div className="right-content d-sm-none d-lg-none d-xl-block d-md-none d-none d-sm-none">
+        <div className="search-container">
+          <input type="text" placeholder="Search" className="search-input" />
+          <button className="search-button">
+            <img src={find} alt="icon" className="button-search" />
+          </button>
+        </div>
+        <div className="box-container">
+            <h1 className="primuim">Subscribe to Premium</h1>
+            <h3 className="subscribe">Subscribe to unlock new features and if eligible, receive a share of ads revenue.</h3>
+            <button className="button-sub">subcribe</button>
+        </div>
+      </div>
+    </div>
+    
+
   );
 };
 
