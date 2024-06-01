@@ -96,10 +96,10 @@ button:hover {
 
   }
   .logo {
-    position: absolute;
-    left: 150px;
-    bottom: 100px;
-    width: 660px; 
+    position: fixed;
+    left: 10%;
+    bottom: 10%;
+    width: 45%; 
     display: block;
     /* size: 50px; */
   }

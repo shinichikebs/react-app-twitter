@@ -10,10 +10,10 @@
 .modal-dialog {
   position: absolute;
   margin: 100;
-  width: 500px; /* Set desired width */
-  height: auto; /* Automatically adjust height based on content */
-  max-width: 150%; /* Optionally set a maximum width */
-  max-height: 150%; /* Optionally set a maximum height */
+  width: 500px; 
+  height: auto; 
+  max-width: 150%; 
+  max-height: 150%; 
   
   top: 50%;
   left: 50%;
@@ -27,15 +27,15 @@
 }
 
 .modal-content {
-  background-color: black; /* Adjust transparency as needed */
+  background-color: black;
 }
 
 .modal-backdrop {
-  background-color: black; /* Adjust transparency as needed */
+  background-color: black;
 }
 .login-label {
-  color: #333; /* Example color */
-  font-size: 16px; /* Example font size */
+  color: #333;
+  font-size: 16px; 
 }
 .tittle{
   position: absolute;
@@ -55,13 +55,13 @@
 }
 
 .login-input {
-  background-color: #f0f0f0; /* Example background color */
-  border: 1px solid #ccc; /* Example border */
-  padding: 8px 12px; /* Example padding */
-  font-size: 10px; /* Example font size */
-  color: #333; /* Example color */
-  width: 100%; /* Example width */
-  box-sizing: border-box; /* Example box-sizing */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 12px; 
+  font-size: 10px; 
+  color: #333;
+  width: 100%; 
+  box-sizing: border-box;
 }
 .close-mb{
   content: "X";
